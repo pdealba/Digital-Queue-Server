@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
-  name: { type: String, require: true },
-  email: { type: String, require: true },
-  userPhoneNumber: { type: Number, require: true },
-  waitTime: { type: Date, require: true },
+  userName: { type: String, required: true },
+  email: { type: String, required: true },
+  phoneNumber: { type: Number, required: true },
+  timeDelay: { type: Number, required: true },
 });
 
-mongoose.Model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
