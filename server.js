@@ -2,11 +2,15 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
+
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
-const client = require("./routes/server");
+const adminRoutes = require("./routes/admin");
 
-app.use("/api", client);
+app.use(bodyParser.json());
+
+app.use("/admin", adminRoutes);
 
 mongoose
   .connect(process.env.DIGITAL_QUEUE_SERVER_URI)
